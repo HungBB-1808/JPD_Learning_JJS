@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Liquid Intelligence - Library &amp; Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#585b65",
+                        "on-secondary-container": "#354283",
+                        "on-tertiary": "#f0f2fe",
+                        "secondary-dim": "#3e4b8c",
+                        "on-secondary-fixed": "#212f6e",
+                        "on-error": "#ffefef",
+                        "surface-bright": "#f5f6fc",
+                        "surface": "#f5f6fc",
+                        "error-dim": "#a70138",
+                        "surface-container-high": "#e0e2ea",
+                        "on-primary": "#f3f1ff",
+                        "error-container": "#f74b6d",
+                        "inverse-primary": "#8596ff",
+                        "tertiary-container": "#e8eaf6",
+                        "surface-dim": "#d1d4dd",
+                        "primary": "#4052b6",
+                        "surface-variant": "#dadde5",
+                        "secondary-fixed": "#c8cfff",
+                        "on-tertiary-fixed": "#41444e",
+                        "primary-fixed": "#8899ff",
+                        "on-surface-variant": "#595b61",
+                        "outline": "#74777c",
+                        "secondary": "#4a5798",
+                        "on-primary-fixed": "#000000",
+                        "on-error-container": "#510017",
+                        "on-primary-fixed-variant": "#001b86",
+                        "outline-variant": "#abadb3",
+                        "surface-container": "#e6e8ef",
+                        "background": "#f5f6fc",
+                        "tertiary-fixed": "#e8eaf6",
+                        "primary-fixed-dim": "#7a8cf3",
+                        "secondary-container": "#c8cfff",
+                        "on-tertiary-fixed-variant": "#5d616b",
+                        "primary-container": "#8899ff",
+                        "on-surface": "#2c2f33",
+                        "on-tertiary-container": "#535760",
+                        "tertiary-fixed-dim": "#dadce8",
+                        "on-secondary-fixed-variant": "#3f4c8d",
+                        "surface-container-highest": "#dadde5",
+                        "secondary-fixed-dim": "#b6c0ff",
+                        "on-background": "#2c2f33",
+                        "primary-dim": "#3346a9",
+                        "surface-container-low": "#eff0f7",
+                        "error": "#b41340",
+                        "inverse-surface": "#0b0e12",
+                        "tertiary-dim": "#4c4f59",
+                        "surface-tint": "#4052b6",
+                        "inverse-on-surface": "#9b9da2",
+                        "on-primary-container": "#00156e",
+                        "on-secondary": "#f2f1ff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f6fc 0%, #e0e7ff 50%, #f0f2fe 100%);
+            min-height: 100vh;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .glass-panel {
+            background: rgba(245, 246, 252, 0.3);
+            backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .specular-edge {
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="text-on-surface antialiased overflow-x-hidden">
+    <!-- TopNavBar -->
+    <nav
+        class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-full border border-white/40 bg-white/30 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] flex justify-between items-center px-8 py-3 max-w-7xl z-50">
+        <div class="text-xl font-bold tracking-tighter text-indigo-700">Liquid Intelligence</div>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-indigo-700 border-b-2 border-indigo-500 pb-1 font-semibold text-sm tracking-tight"
+                href="#">Library</a>
+            <a class="text-slate-600 hover:text-indigo-500 transition-colors font-semibold text-sm tracking-tight"
+                href="#">Input</a>
+            <a class="text-slate-600 hover:text-indigo-500 transition-colors font-semibold text-sm tracking-tight"
+                href="#">Practice</a>
+            <a class="text-slate-600 hover:text-indigo-500 transition-colors font-semibold text-sm tracking-tight"
+                href="#">Quiz</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="relative hidden sm:block">
+                <span
+                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+                <input
+                    class="bg-white/20 border-none rounded-full py-1.5 pl-10 pr-4 text-xs focus:ring-2 focus:ring-indigo-500/50 w-48 transition-all"
+                    placeholder="Search library..." type="text" />
+            </div>
+            <button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                <span class="material-symbols-outlined text-slate-600">account_circle</span>
+            </button>
+        </div>
+    </nav>
+    <!-- SideNavBar -->
+    <aside
+        class="fixed left-4 top-24 h-[819px] w-64 rounded-3xl border border-white/30 bg-white/20 backdrop-blur-2xl shadow-xl shadow-indigo-500/5 flex flex-col p-6 gap-4 z-40 hidden lg:flex">
+        <div class="mb-6">
+            <h2 class="text-lg font-extrabold text-indigo-700 font-headline">Learning Path</h2>
+            <p class="text-xs text-on-surface-variant font-medium">N5 Level</p>
+        </div>
+        <nav class="flex flex-col gap-2">
+            <a class="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-indigo-500/20 to-transparent text-indigo-700 font-bold border-r-4 border-indigo-500 transition-all hover:translate-x-1 duration-300"
+                href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">amp_stories</span>
+                <span class="text-sm">Flashcards</span>
+            </a>
+            <a class="flex items-center gap-3 p-3 rounded-xl text-slate-500 hover:bg-white/10 transition-all hover:translate-x-1 duration-300"
+                href="#">
+                <span class="material-symbols-outlined">translate</span>
+                <span class="text-sm">Kanji</span>
+            </a>
+            <a class="flex items-center gap-3 p-3 rounded-xl text-slate-500 hover:bg-white/10 transition-all hover:translate-x-1 duration-300"
+                href="#">
+                <span class="material-symbols-outlined">menu_book</span>
+                <span class="text-sm">Grammar</span>
+            </a>
+            <a class="flex items-center gap-3 p-3 rounded-xl text-slate-500 hover:bg-white/10 transition-all hover:translate-x-1 duration-300"
+                href="#">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="text-sm">Settings</span>
+            </a>
+        </nav>
+        <div class="mt-auto glass-card p-4 rounded-2xl flex flex-col gap-3">
+            <div
+                class="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                <span>Daily Goal</span>
+                <span>85%</span>
+            </div>
+            <div class="h-1.5 w-full bg-slate-200/50 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-primary to-primary-container w-[85%]"></div>
+            </div>
+        </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="pt-32 pb-12 lg:ml-72 px-4 md:px-8 max-w-7xl">
+        <!-- Header Section (Asymmetrical) -->
+        <header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface mb-4 leading-none">
+                    Good Morning, <span class="text-indigo-600">Alex</span>.
+                </h1>
+                <p class="text-lg text-on-surface-variant max-w-lg">Your linguistic journey is refracting beautifully.
+                    You have 42 words due for review today.</p>
+            </div>
+            <div class="flex gap-4">
+                <button
+                    class="px-8 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-bold shadow-lg shadow-indigo-500/20 hover:scale-105 transition-transform">
+                    Start Review
+                </button>
+            </div>
+        </header>
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <!-- Progress Card (Spans 2 columns) -->
+            <div
+                class="md:col-span-2 glass-panel rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between min-h-[320px]">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="label-md uppercase tracking-widest font-bold text-indigo-500 mb-2 block">Weekly
+                            Momentum</span>
+                        <h2 class="text-3xl font-extrabold text-on-surface">Activity Burst</h2>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="bg-white/40 px-3 py-1 rounded-full text-xs font-bold border border-white/50">Last 7
+                            Days</span>
+                    </div>
+                </div>
+                <div class="flex items-end justify-between h-32 mt-8 gap-2">
+                    <div class="flex-1 bg-indigo-200/40 rounded-t-xl h-[40%]"></div>
+                    <div class="flex-1 bg-indigo-300/40 rounded-t-xl h-[65%]"></div>
+                    <div class="flex-1 bg-indigo-400/40 rounded-t-xl h-[55%]"></div>
+                    <div class="flex-1 bg-indigo-500/60 rounded-t-xl h-[85%] border-t-4 border-white/50"></div>
+                    <div class="flex-1 bg-indigo-400/40 rounded-t-xl h-[70%]"></div>
+                    <div class="flex-1 bg-indigo-300/40 rounded-t-xl h-[45%]"></div>
+                    <div class="flex-1 bg-primary rounded-t-xl h-[95%]"></div>
+                </div>
+                <div class="mt-6 flex gap-8">
+                    <div>
+                        <p class="text-xs font-bold text-on-surface-variant">WORDS LEARNED</p>
+                        <p class="text-2xl font-extrabold">1,248</p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-on-surface-variant">STREAK</p>
+                        <p class="text-2xl font-extrabold">14 Days</p>
+                    </div>
+                </div>
+                <!-- Decorative Blur -->
+                <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-indigo-400/10 rounded-full blur-3xl"></div>
+            </div>
+            <!-- Focus Stats Card -->
+            <div class="glass-panel rounded-3xl p-8 flex flex-col border-primary/10">
+                <span class="label-md uppercase tracking-widest font-bold text-indigo-500 mb-2 block">Focus Area</span>
+                <h2 class="text-2xl font-extrabold text-on-surface mb-6">JLPT N5 Kanji</h2>
+                <div class="space-y-6 flex-1">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-semibold">Mastered</span>
+                        <span class="text-sm font-bold">78 / 100</span>
+                    </div>
+                    <div class="h-2 bg-slate-200/40 rounded-full overflow-hidden">
+                        <div class="h-full bg-primary w-[78%]"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="glass-card p-4 rounded-2xl text-center">
+                            <p class="text-xs font-bold text-on-surface-variant">ACCURACY</p>
+                            <p class="text-xl font-extrabold text-indigo-600">92%</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-2xl text-center">
+                            <p class="text-xs font-bold text-on-surface-variant">SPEED</p>
+                            <p class="text-xl font-extrabold text-indigo-600">1.2s</p>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="mt-8 w-full py-3 glass-card rounded-full font-bold text-indigo-700 hover:bg-white/60 transition-all text-sm">
+                    View Kanji List
+                </button>
+            </div>
+        </div>
+        <!-- Library Section -->
+        <section class="mb-12">
+            <div class="flex justify-between items-center mb-8">
+                <h3 class="text-3xl font-extrabold tracking-tight">Your Decks</h3>
+                <button class="flex items-center gap-2 text-indigo-600 font-bold hover:underline">
+                    <span class="material-symbols-outlined">add_circle</span>
+                    Create New
+                </button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+                <!-- Deck 1 -->
+                <div class="glass-panel rounded-3xl p-1 overflow-hidden group">
+                    <div class="relative h-32 rounded-2xl overflow-hidden m-2">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="vibrant neon lights of shinjuku district in tokyo at night with soft bokeh"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpe3mtt_l4k4AxnLbBupSxOIaMHzyIeQuyNhZoeFCkDeJkugIpPVe8c0odbvvrDNFi7lGRHXrdEh6nSpDZrntCqzvvYeLq3E597_utBaMOOtSgEKmH67os8Yhn6tj8yH9yUP_AN17JmkRcJDRtR-CSXOqE7qsBij2D8537VDMuzjuQd3WG9QhI-L89oZV2UeEzY-0nmTK2ls2PGvKzpabJKgf_b9lOi6eEzNIy4ZFXhMotqN2_0dbV-sauLq75DNTCXEA6yUvTg54" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <span
+                            class="absolute bottom-3 left-3 px-2 py-1 bg-white/20 backdrop-blur-md rounded-lg text-[10px] text-white font-bold uppercase tracking-tighter">Essential</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-lg font-bold mb-1">Common Verbs</h4>
+                        <p class="text-xs text-on-surface-variant mb-4">450 Words • 12 New</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex -space-x-2">
+                                <div
+                                    class="w-6 h-6 rounded-full border-2 border-white bg-indigo-100 flex items-center justify-center text-[8px] font-bold">
+                                    JL</div>
+                                <div
+                                    class="w-6 h-6 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center text-[8px] font-bold">
+                                    N5</div>
+                            </div>
+                            <button
+                                class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-sm">play_arrow</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Deck 2 -->
+                <div class="glass-panel rounded-3xl p-1 overflow-hidden group">
+                    <div class="relative h-32 rounded-2xl overflow-hidden m-2">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="traditional japanese wooden architecture with cherry blossoms in soft focus morning light"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwL-JWMTNnjr2fsQ5UcGndhw3KTu1JIYYZNwr2C34O0flDGyPHY6VOjOr7USUYr1cuQiU3gtI1JuqNbrnoGdmn9IwQUQBnfPF7GubDbxonNAQqAii-1ln30LFLXEApQmuY2NF_rzvrEdryaDJ_xomf7WS5cl0Y5k6RG4QbjRQlWCoHfuiIYi7OxwHo9sCYzBdwQHw-Acz8obD-1dkMSy6g6CxdtKZGIRC5b0QF5VXKM2IM4hFnZ-ui3pzGHGt1c0f9KhldzlQIUOY" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <span
+                            class="absolute bottom-3 left-3 px-2 py-1 bg-white/20 backdrop-blur-md rounded-lg text-[10px] text-white font-bold uppercase tracking-tighter">Custom</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-lg font-bold mb-1">Travel Phrases</h4>
+                        <p class="text-xs text-on-surface-variant mb-4">120 Words • 0 New</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex -space-x-2">
+                                <div
+                                    class="w-6 h-6 rounded-full border-2 border-white bg-green-100 flex items-center justify-center text-[8px] font-bold">
+                                    TR</div>
+                            </div>
+                            <button
+                                class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-sm">play_arrow</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Deck 3 -->
+                <div class="glass-panel rounded-3xl p-1 overflow-hidden group">
+                    <div class="relative h-32 rounded-2xl overflow-hidden m-2">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="minimalist zen garden with raked white sand and smooth dark stones in soft diffused light"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZH8Efu4VpG4yFNdfnOJ2fREgGMUoGwhhRuHPqJ5DoDjx8aByiJmwSafLa8w2OGvh9GoTJAKRjwRUS5rmNcJerbXT0Nwd_CEG5RDSqUhFp6pOgrI7CiR9HChMmSlSIGtI6xHaPVZftM303AM9IBbDBIu0SdKrZWWt81oDia4HX5-id0Ljw6I3QF1H8rZy8j8zww4HzcgdX25w_nR5y3RM6W3oNA39dnNGdHbTKwLIVssQQW_J5AtWFzNcfy8uIfOAeF6PyXSzcdqs" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <span
+                            class="absolute bottom-3 left-3 px-2 py-1 bg-white/20 backdrop-blur-md rounded-lg text-[10px] text-white font-bold uppercase tracking-tighter">Daily</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-lg font-bold mb-1">Adjectives</h4>
+                        <p class="text-xs text-on-surface-variant mb-4">310 Words • 5 New</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex -space-x-2">
+                                <div
+                                    class="w-6 h-6 rounded-full border-2 border-white bg-orange-100 flex items-center justify-center text-[8px] font-bold">
+                                    AJ</div>
+                                <div
+                                    class="w-6 h-6 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center text-[8px] font-bold">
+                                    N5</div>
+                            </div>
+                            <button
+                                class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-sm">play_arrow</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Deck 4 -->
+                <div class="glass-panel rounded-3xl p-1 overflow-hidden group">
+                    <div class="relative h-32 rounded-2xl overflow-hidden m-2">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="modern tokyo street scene with bright signs and sleek transportation in crisp morning air"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNiJ46bQdS3YDH8Ciq6veV0hgCahiUyczkMicKLQIf6V4IPaJzPBYnTZ9tD9U9Sg0kGhYfChwLFmgyzNBSKxrQx_p4hpdhSVPj0CinWBItPfZ_1b_06e3kJ4f5mQwBS3WGfUn6dI6gE7KX-HGK11tXWYDMz7u1GX8XYbBR8-36tvQ2ahYVcI3BdEDigrTWL4ggn8uCuFlLclbkl83ZMGFC-DwECpG7o6ag426eqQ7Iq8na0lFlAt3UbifMiNXVGWPQYgcyZ9NL2b4" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <span
+                            class="absolute bottom-3 left-3 px-2 py-1 bg-white/20 backdrop-blur-md rounded-lg text-[10px] text-white font-bold uppercase tracking-tighter">Hard</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-lg font-bold mb-1">Food &amp; Drink</h4>
+                        <p class="text-xs text-on-surface-variant mb-4">88 Words • 2 New</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex -space-x-2">
+                                <div
+                                    class="w-6 h-6 rounded-full border-2 border-white bg-red-100 flex items-center justify-center text-[8px] font-bold">
+                                    FD</div>
+                            </div>
+                            <button
+                                class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-sm">play_arrow</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Recent Activity Table-less List -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-extrabold tracking-tight mb-8">Recent Activity</h3>
+            <div class="glass-panel rounded-3xl p-4 overflow-hidden">
+                <div class="flex flex-col gap-1">
+                    <div
+                        class="flex items-center justify-between p-4 hover:bg-white/30 rounded-2xl transition-all cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600">
+                                <span class="material-symbols-outlined">history</span>
+                            </div>
+                            <div>
+                                <h5 class="font-bold">Reviewed: 24 Kanji Cards</h5>
+                                <p class="text-xs text-on-surface-variant">Focusing on radical: "Person"</p>
+                            </div>
+                        </div>
+                        <div class="text-right hidden sm:block">
+                            <p class="text-sm font-bold text-green-600">+12 XP</p>
+                            <p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">2 hours
+                                ago</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center justify-between p-4 hover:bg-white/30 rounded-2xl transition-all cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-600">
+                                <span class="material-symbols-outlined">star</span>
+                            </div>
+                            <div>
+                                <h5 class="font-bold">Mastery Achieved: Taberu (食べる)</h5>
+                                <p class="text-xs text-on-surface-variant">Reached level 5 maturity</p>
+                            </div>
+                        </div>
+                        <div class="text-right hidden sm:block">
+                            <p class="text-sm font-bold text-green-600">+50 XP</p>
+                            <p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">4 hours
+                                ago</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center justify-between p-4 hover:bg-white/30 rounded-2xl transition-all cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-600">
+                                <span class="material-symbols-outlined">menu_book</span>
+                            </div>
+                            <div>
+                                <h5 class="font-bold">Added to Deck: Travel Phrases</h5>
+                                <p class="text-xs text-on-surface-variant">Imported 15 new entries from "Hotel Check-in"
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-right hidden sm:block">
+                            <p class="text-sm font-bold text-indigo-400">Activity</p>
+                            <p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Yesterday
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Bottom Mobile Nav -->
+    <nav
+        class="md:hidden fixed bottom-0 left-0 right-0 bg-white/40 backdrop-blur-2xl border-t border-white/20 p-4 flex justify-around items-center z-50">
+        <button class="flex flex-col items-center gap-1 text-indigo-700">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+            <span class="text-[10px] font-bold">Dashboard</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-slate-500">
+            <span class="material-symbols-outlined">amp_stories</span>
+            <span class="text-[10px] font-bold">Library</span>
+        </button>
+        <button
+            class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center -translate-y-6 shadow-lg shadow-primary/40 border-4 border-[#f5f6fc]">
+            <span class="material-symbols-outlined">play_arrow</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-slate-500">
+            <span class="material-symbols-outlined">equalizer</span>
+            <span class="text-[10px] font-bold">Stats</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-slate-500">
+            <span class="material-symbols-outlined">person</span>
+            <span class="text-[10px] font-bold">Profile</span>
+        </button>
+    </nav>
+</body>
+
+</html>

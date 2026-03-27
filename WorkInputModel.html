@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Liquid Intelligence | New Vocabulary</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#585b65",
+                        "on-secondary-container": "#354283",
+                        "on-tertiary": "#f0f2fe",
+                        "secondary-dim": "#3e4b8c",
+                        "on-secondary-fixed": "#212f6e",
+                        "on-error": "#ffefef",
+                        "surface-bright": "#f5f6fc",
+                        "surface": "#f5f6fc",
+                        "error-dim": "#a70138",
+                        "surface-container-high": "#e0e2ea",
+                        "on-primary": "#f3f1ff",
+                        "error-container": "#f74b6d",
+                        "inverse-primary": "#8596ff",
+                        "tertiary-container": "#e8eaf6",
+                        "surface-dim": "#d1d4dd",
+                        "primary": "#4052b6",
+                        "surface-variant": "#dadde5",
+                        "secondary-fixed": "#c8cfff",
+                        "on-tertiary-fixed": "#41444e",
+                        "primary-fixed": "#8899ff",
+                        "on-surface-variant": "#595b61",
+                        "outline": "#74777c",
+                        "secondary": "#4a5798",
+                        "on-primary-fixed": "#000000",
+                        "on-error-container": "#510017",
+                        "on-primary-fixed-variant": "#001b86",
+                        "outline-variant": "#abadb3",
+                        "surface-container": "#e6e8ef",
+                        "background": "#f5f6fc",
+                        "tertiary-fixed": "#e8eaf6",
+                        "primary-fixed-dim": "#7a8cf3",
+                        "secondary-container": "#c8cfff",
+                        "on-tertiary-fixed-variant": "#5d616b",
+                        "primary-container": "#8899ff",
+                        "on-surface": "#2c2f33",
+                        "on-tertiary-container": "#535760",
+                        "tertiary-fixed-dim": "#dadce8",
+                        "on-secondary-fixed-variant": "#3f4c8d",
+                        "surface-container-highest": "#dadde5",
+                        "secondary-fixed-dim": "#b6c0ff",
+                        "on-background": "#2c2f33",
+                        "primary-dim": "#3346a9",
+                        "surface-container-low": "#eff0f7",
+                        "error": "#b41340",
+                        "inverse-surface": "#0b0e12",
+                        "tertiary-dim": "#4c4f59",
+                        "surface-tint": "#4052b6",
+                        "inverse-on-surface": "#9b9da2",
+                        "on-primary-container": "#00156e",
+                        "on-secondary": "#f2f1ff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-panel {
+            background: rgba(245, 246, 252, 0.3);
+            backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .specular-border {
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .bg-mesh {
+            background-color: #f5f6fc;
+            background-image:
+                radial-gradient(at 0% 0%, rgba(136, 153, 255, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(64, 82, 182, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(136, 153, 255, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(64, 82, 182, 0.1) 0px, transparent 50%);
+        }
+    </style>
+</head>
+
+<body class="bg-mesh min-h-screen text-on-surface overflow-hidden">
+    <!-- Background Dashboard (Blurred & Disabled) -->
+    <main class="fixed inset-0 p-8 grid grid-cols-12 gap-6 filter blur-md pointer-events-none scale-[1.02]">
+        <!-- Top Nav Placeholder -->
+        <header class="col-span-12 flex justify-between items-center py-4 px-8 glass-panel rounded-full">
+            <span class="text-xl font-bold tracking-tighter text-primary">Liquid Intelligence</span>
+            <div class="flex gap-6">
+                <span class="text-sm font-semibold opacity-50">Library</span>
+                <span class="text-sm font-semibold opacity-50">Practice</span>
+                <span class="text-sm font-semibold opacity-50">Quiz</span>
+            </div>
+        </header>
+        <!-- Bento Grid Background Layout -->
+        <div class="col-span-3 space-y-6">
+            <div class="h-64 glass-panel rounded-3xl p-6"></div>
+            <div class="h-48 glass-panel rounded-3xl p-6"></div>
+        </div>
+        <div class="col-span-6 space-y-6">
+            <div class="h-full glass-panel rounded-3xl p-8 relative overflow-hidden">
+                <img class="absolute inset-0 w-full h-full object-cover opacity-20"
+                    data-alt="Modern minimalist workspace in Kyoto with shoji screens and soft natural morning light"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrO-c3JaTvozjT0lKXJcbqvlHOIcHV0g6BjDk_ogNKF1zD1FWpbG7vWc1_7DoRDDTI_RkhMmPumKWD_lXOLU3NU9xyOOypLGlRdvBr75U12K7LypKyD1Efl5ozv3sj90mssewCjkJhYYwqU6VmbNcEHyrLa39RUcGJzeCiKgvCnsVh-IzkJXG1-QWQaQkX8t5oYmeDMoQsZOoG8_YE9U0pzrXuwiTh0QdaokG4AaYH5qIK0U7QuR4V499vIl-DINCnnSP2mgU5-6g" />
+            </div>
+        </div>
+        <div class="col-span-3 space-y-6">
+            <div class="h-full glass-panel rounded-3xl p-6"></div>
+        </div>
+    </main>
+    <!-- Modal Overlay -->
+    <div class="fixed inset-0 z-50 flex items-center justify-center bg-white/10 backdrop-blur-sm">
+        <!-- Modal Content: Word Input -->
+        <div
+            class="glass-panel w-full max-w-xl rounded-[2.5rem] p-10 shadow-[0_32px_64px_-12px_rgba(31,38,135,0.15)] relative overflow-hidden">
+            <!-- Close Action (Top Right) -->
+            <button
+                class="absolute top-8 right-8 w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-white/40 transition-all active:scale-90">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <!-- Modal Header -->
+            <div class="mb-10 text-center md:text-left">
+                <div class="inline-flex items-center justify-center p-3 rounded-2xl bg-primary/10 text-primary mb-4">
+                    <span class="material-symbols-outlined text-3xl">add_circle</span>
+                </div>
+                <h2 class="text-3xl font-extrabold tracking-tight text-on-surface mb-2">Expand Your Lexicon</h2>
+                <p class="text-on-surface-variant text-sm font-medium opacity-80">Add new Japanese vocabulary to your
+                    personal bank.</p>
+            </div>
+            <!-- Form Content -->
+            <form class="space-y-8">
+                <!-- Japanese Input Group -->
+                <div class="space-y-3">
+                    <label class="block text-xs font-bold uppercase tracking-widest text-primary/70 px-1">Japanese Word
+                        / Kanji</label>
+                    <div class="relative group">
+                        <input
+                            class="w-full bg-surface-container-low/20 backdrop-blur-md border border-white/40 rounded-2xl px-6 py-5 text-lg font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-outline-variant"
+                            placeholder="例: 木漏れ日" type="text" />
+                        <div class="absolute right-5 top-1/2 -translate-y-1/2 flex gap-2">
+                            <span class="material-symbols-outlined text-on-surface-variant/40">translate</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vietnamese Input Group -->
+                <div class="space-y-3">
+                    <label class="block text-xs font-bold uppercase tracking-widest text-primary/70 px-1">Vietnamese
+                        Meaning</label>
+                    <div class="relative group">
+                        <input
+                            class="w-full bg-surface-container-low/20 backdrop-blur-md border border-white/40 rounded-2xl px-6 py-5 text-lg font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-outline-variant"
+                            placeholder="Nghĩa của từ..." type="text" />
+                    </div>
+                </div>
+                <!-- Footer Actions -->
+                <div class="pt-4 flex flex-col md:flex-row gap-4 items-center">
+                    <button
+                        class="w-full md:flex-1 bg-gradient-to-r from-primary to-primary-container text-white font-bold py-5 rounded-full shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group"
+                        type="submit">
+                        <span>Save to Bank</span>
+                        <span
+                            class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">auto_awesome</span>
+                    </button>
+                    <button
+                        class="w-full md:w-auto px-10 py-5 text-sm font-bold text-on-surface-variant hover:text-on-surface transition-colors"
+                        type="button">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+            <!-- Decorative Elements -->
+            <div class="absolute -bottom-12 -left-12 w-40 h-40 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+            <div class="absolute -top-12 -right-12 w-40 h-40 bg-secondary/5 rounded-full blur-3xl -z-10"></div>
+        </div>
+    </div>
+    <!-- Background Navigation (Visual Reference from JSON) -->
+    <nav
+        class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-full border border-white/40 glass-panel shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] flex justify-between items-center px-8 py-3 max-w-7xl z-10 opacity-50 filter blur-[1px]">
+        <div class="text-xl font-bold tracking-tighter text-indigo-700">Liquid Intelligence</div>
+        <div class="hidden md:flex items-center gap-8 font-['Manrope'] tracking-tight font-semibold text-sm">
+            <a class="text-slate-600" href="#">Library</a>
+            <a class="text-indigo-700 border-b-2 border-indigo-500 pb-1" href="#">Input</a>
+            <a class="text-slate-600" href="#">Practice</a>
+            <a class="text-slate-600" href="#">Quiz</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-slate-600">account_circle</span>
+        </div>
+    </nav>
+    <!-- Side Navigation (Visual Reference from JSON) -->
+    <aside
+        class="fixed left-4 top-24 h-[819px] w-64 rounded-3xl border border-white/30 glass-panel shadow-xl shadow-indigo-500/5 flex flex-col p-6 gap-4 z-10 opacity-50 filter blur-[1px]">
+        <div class="mb-6">
+            <h3 class="text-lg font-extrabold text-indigo-700">Learning Path</h3>
+            <p class="text-xs font-medium text-slate-500">N5 Level</p>
+        </div>
+        <div class="space-y-1">
+            <div
+                class="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-indigo-500/20 to-transparent text-indigo-700 font-bold border-r-4 border-indigo-500">
+                <span class="material-symbols-outlined">amp_stories</span>
+                <span class="text-sm">Flashcards</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-xl text-slate-500">
+                <span class="material-symbols-outlined">translate</span>
+                <span class="text-sm">Kanji</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-xl text-slate-500">
+                <span class="material-symbols-outlined">menu_book</span>
+                <span class="text-sm">Grammar</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-xl text-slate-500">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="text-sm">Settings</span>
+            </div>
+        </div>
+    </aside>
+</body>
+
+</html>

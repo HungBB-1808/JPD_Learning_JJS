@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Liquid Intelligence - Flashcards</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary": "#585b65",
+            "on-secondary-container": "#354283",
+            "on-tertiary": "#f0f2fe",
+            "secondary-dim": "#3e4b8c",
+            "on-secondary-fixed": "#212f6e",
+            "on-error": "#ffefef",
+            "surface-bright": "#f5f6fc",
+            "surface": "#f5f6fc",
+            "error-dim": "#a70138",
+            "surface-container-high": "#e0e2ea",
+            "on-primary": "#f3f1ff",
+            "error-container": "#f74b6d",
+            "inverse-primary": "#8596ff",
+            "tertiary-container": "#e8eaf6",
+            "surface-dim": "#d1d4dd",
+            "primary": "#4052b6",
+            "surface-variant": "#dadde5",
+            "secondary-fixed": "#c8cfff",
+            "on-tertiary-fixed": "#41444e",
+            "primary-fixed": "#8899ff",
+            "on-surface-variant": "#595b61",
+            "outline": "#74777c",
+            "secondary": "#4a5798",
+            "on-primary-fixed": "#000000",
+            "on-error-container": "#510017",
+            "on-primary-fixed-variant": "#001b86",
+            "outline-variant": "#abadb3",
+            "surface-container": "#e6e8ef",
+            "background": "#f5f6fc",
+            "tertiary-fixed": "#e8eaf6",
+            "primary-fixed-dim": "#7a8cf3",
+            "secondary-container": "#c8cfff",
+            "on-tertiary-fixed-variant": "#5d616b",
+            "primary-container": "#8899ff",
+            "on-surface": "#2c2f33",
+            "on-tertiary-container": "#535760",
+            "tertiary-fixed-dim": "#dadce8",
+            "on-secondary-fixed-variant": "#3f4c8d",
+            "surface-container-highest": "#dadde5",
+            "secondary-fixed-dim": "#b6c0ff",
+            "on-background": "#2c2f33",
+            "primary-dim": "#3346a9",
+            "surface-container-low": "#eff0f7",
+            "error": "#b41340",
+            "inverse-surface": "#0b0e12",
+            "tertiary-dim": "#4c4f59",
+            "surface-tint": "#4052b6",
+            "inverse-on-surface": "#9b9da2",
+            "on-primary-container": "#00156e",
+            "on-secondary": "#f2f1ff",
+            "surface-container-lowest": "#ffffff"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .glass-pane {
+      background: rgba(245, 246, 252, 0.3);
+      backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .specular-edge {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+
+<body class="bg-surface relative min-h-screen flex flex-col items-center justify-center">
+  <!-- Background Gradient Element -->
+  <div class="fixed inset-0 z-0 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-100 via-indigo-50 to-purple-100 opacity-60"></div>
+    <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-300/20 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-[-5%] right-[-5%] w-[40%] h-[40%] bg-indigo-300/20 rounded-full blur-[120px]"></div>
+  </div>
+  <!-- Top Navigation (Shared Component Shell) -->
+  <nav
+    class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-full border border-white/40 dark:border-slate-700/40 bg-white/30 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] flex justify-between items-center px-8 py-3 max-w-7xl z-50">
+    <div class="text-xl font-bold tracking-tighter text-indigo-700">Liquid Intelligence</div>
+    <div class="hidden md:flex items-center gap-8 font-['Manrope'] tracking-tight font-semibold text-sm">
+      <a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">Library</a>
+      <a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">Input</a>
+      <a class="text-indigo-700 border-b-2 border-indigo-500 pb-1" href="#">Practice</a>
+      <a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">Quiz</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <button
+        class="material-symbols-outlined text-slate-600 hover:bg-white/20 p-2 rounded-full transition-all">account_circle</button>
+    </div>
+  </nav>
+  <!-- Side Navigation (Shared Component Shell) -->
+  <aside
+    class="fixed left-4 top-24 h-[768px] w-64 rounded-3xl border border-white/30 bg-white/20 backdrop-blur-2xl shadow-xl shadow-indigo-500/5 flex flex-col p-6 gap-4 z-40 hidden xl:flex">
+    <div class="mb-4">
+      <h2 class="text-lg font-extrabold text-indigo-700 leading-none">Learning Path</h2>
+      <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mt-1">N5 Level</p>
+    </div>
+    <div class="flex flex-col gap-1">
+      <a class="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-indigo-500/20 to-transparent text-indigo-700 font-bold border-r-4 border-indigo-500 transition-all"
+        href="#">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">amp_stories</span>
+        <span class="text-sm">Flashcards</span>
+      </a>
+      <a class="flex items-center gap-3 p-3 rounded-xl text-slate-500 hover:bg-white/10 hover:translate-x-1 duration-300 transition-all"
+        href="#">
+        <span class="material-symbols-outlined">translate</span>
+        <span class="text-sm">Kanji</span>
+      </a>
+      <a class="flex items-center gap-3 p-3 rounded-xl text-slate-500 hover:bg-white/10 hover:translate-x-1 duration-300 transition-all"
+        href="#">
+        <span class="material-symbols-outlined">menu_book</span>
+        <span class="text-sm">Grammar</span>
+      </a>
+      <a class="flex items-center gap-3 p-3 rounded-xl text-slate-500 hover:bg-white/10 hover:translate-x-1 duration-300 transition-all"
+        href="#">
+        <span class="material-symbols-outlined">settings</span>
+        <span class="text-sm">Settings</span>
+      </a>
+    </div>
+    <div class="mt-auto bg-white/30 p-4 rounded-2xl border border-white/40">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] font-bold text-slate-500">TODAY'S GOAL</span>
+        <span class="text-[10px] font-bold text-indigo-600">80%</span>
+      </div>
+      <div class="h-1.5 w-full bg-slate-200/50 rounded-full overflow-hidden">
+        <div class="h-full w-[80%] bg-indigo-500 rounded-full"></div>
+      </div>
+    </div>
+  </aside>
+  <!-- Main Flashcard Canvas -->
+  <main class="relative z-10 w-full max-w-4xl px-6 flex flex-col items-center">
+    <!-- Progress Indicator -->
+    <div class="mb-12 flex items-center gap-4">
+      <div class="h-1 w-32 bg-white/20 rounded-full overflow-hidden">
+        <div class="h-full w-1/3 bg-primary"></div>
+      </div>
+      <span class="text-xs font-bold text-on-surface-variant tracking-widest uppercase">Card 12 of 45</span>
+    </div>
+    <!-- The Immersive Glass Card -->
+    <div
+      class="glass-pane w-full aspect-[4/3] max-w-2xl rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] flex flex-col items-center justify-center relative group">
+      <!-- Asymmetrical Background Decoration Inside Card -->
+      <div class="absolute top-12 left-12 w-24 h-24 bg-primary/5 rounded-full blur-2xl"></div>
+      <div class="absolute bottom-20 right-12 w-32 h-32 bg-indigo-400/10 rounded-full blur-3xl"></div>
+      <div class="flex flex-col items-center gap-6">
+        <!-- Radical/Category Label -->
+        <div
+          class="px-4 py-1.5 rounded-full bg-white/40 text-[10px] font-bold tracking-[0.2em] text-primary uppercase border border-white/60">
+          Natural Phenomenon
+        </div>
+        <!-- Main Kanji Display -->
+        <h1
+          class="text-9xl md:text-[12rem] font-medium text-on-surface tracking-tighter transition-transform group-hover:scale-105 duration-700">
+          海
+        </h1>
+        <!-- Reading Hint (Secondary Visual) -->
+        <div class="flex flex-col items-center gap-1">
+          <span class="text-sm font-medium text-on-surface-variant/60 tracking-widest">うみ • UMI</span>
+        </div>
+      </div>
+      <!-- Tap to Reveal Overlay Hint -->
+      <button
+        class="absolute inset-0 flex items-end justify-center pb-12 opacity-40 hover:opacity-100 transition-opacity">
+        <div
+          class="flex items-center gap-2 text-xs font-bold text-primary tracking-widest uppercase bg-white/50 px-6 py-3 rounded-full border border-white/40">
+          <span class="material-symbols-outlined text-sm">visibility</span>
+          Tap to Reveal Definition
+        </div>
+      </button>
+    </div>
+    <!-- Interaction Controls -->
+    <div class="mt-12 flex gap-6 items-center">
+      <!-- Need Practice Button -->
+      <button class="group flex flex-col items-center gap-3">
+        <div
+          class="w-16 h-16 rounded-full bg-surface-container-low/50 backdrop-blur-md border border-white/40 flex items-center justify-center text-on-surface-variant group-hover:bg-error-container/20 group-hover:text-error-dim transition-all duration-300">
+          <span class="material-symbols-outlined text-3xl">replay</span>
+        </div>
+        <span class="text-[10px] font-bold tracking-widest text-on-surface-variant/70 uppercase">Need Practice</span>
+      </button>
+      <!-- Divider (Visual Only) -->
+      <div class="h-8 w-[1px] bg-on-surface-variant/10"></div>
+      <!-- I Know Button -->
+      <button class="group flex flex-col items-center gap-3">
+        <div
+          class="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center text-on-primary shadow-xl shadow-primary/20 group-hover:scale-110 transition-all duration-300">
+          <span class="material-symbols-outlined text-5xl"
+            style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        </div>
+        <span class="text-[10px] font-bold tracking-widest text-primary uppercase">I Know This</span>
+      </button>
+      <!-- Divider (Visual Only) -->
+      <div class="h-8 w-[1px] bg-on-surface-variant/10"></div>
+      <!-- Next/Skip -->
+      <button class="group flex flex-col items-center gap-3">
+        <div
+          class="w-16 h-16 rounded-full bg-surface-container-low/50 backdrop-blur-md border border-white/40 flex items-center justify-center text-on-surface-variant group-hover:bg-primary/10 group-hover:text-primary transition-all duration-300">
+          <span class="material-symbols-outlined text-3xl">fast_forward</span>
+        </div>
+        <span class="text-[10px] font-bold tracking-widest text-on-surface-variant/70 uppercase">Skip Card</span>
+      </button>
+    </div>
+  </main>
+  <!-- Contextual Decorative Visuals (Background integration) -->
+  <div class="fixed bottom-0 right-0 p-12 opacity-20 pointer-events-none">
+    <img alt="Contextual Mood" class="w-96 rounded-full mix-blend-multiply"
+      data-alt="abstract soft ocean waves at high key lighting with ethereal pale blue and white foam textures"
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9Ym1xQLhCkFIC0rH_YV1ov6opGW_drPYu8xz3V9nnsCf4d5LA4fi4tlcFL7X4t0Pue0e1sUGWX2g5F0IIVcVuJHW0BXYW11FVL6ksPW0EqOjCIHtnl0TIEeFnioj0lH5USpqfaKKhKfIncMOEs46-0OEB2ew9jgOsuxQeSGEQiA0QAplXvSTZhu6fKvfJdZ-aRpCGzAVe5AQIpm73CPyKack4jl7EngUe9o5vSJYR29B2gvCa3VuqL1wghhW3wkluAJL6ATd_El0" />
+  </div>
+  <!-- Bottom Nav Shell (Mobile Only) -->
+  <nav
+    class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white/40 backdrop-blur-2xl rounded-full px-6 py-4 flex justify-between items-center shadow-2xl border border-white/50 z-50">
+    <button class="material-symbols-outlined text-indigo-700"
+      style="font-variation-settings: 'FILL' 1;">amp_stories</button>
+    <button class="material-symbols-outlined text-slate-400">translate</button>
+    <button class="material-symbols-outlined text-slate-400">menu_book</button>
+    <button class="material-symbols-outlined text-slate-400">settings</button>
+  </nav>
+</body>
+
+</html>
