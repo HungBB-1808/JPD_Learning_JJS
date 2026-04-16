@@ -395,8 +395,47 @@ function handleSearch(e) {
   renderVocabList(Store.search(q));
 }
 
+// ─── Theme Toggle ───
+function initTheme() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const html = document.documentElement;
+  
+  const savedTheme = localStorage.getItem('theme');
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+    html.classList.add('dark');
+    html.classList.remove('light');
+    if(themeIcon) themeIcon.textContent = 'light_mode';
+  } else {
+    html.classList.remove('dark');
+    html.classList.add('light');
+    if(themeIcon) themeIcon.textContent = 'dark_mode';
+  }
+  
+  if(themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isDark = html.classList.contains('dark');
+      if (isDark) {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        localStorage.setItem('theme', 'light');
+        themeIcon.textContent = 'dark_mode';
+      } else {
+        html.classList.add('dark');
+        html.classList.remove('light');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.textContent = 'light_mode';
+      }
+    });
+  }
+}
+
 // ─── Init ───
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  
   // Show dashboard by default
   document.getElementById('view-dashboard').classList.add('active');
   updateNavHighlight();
