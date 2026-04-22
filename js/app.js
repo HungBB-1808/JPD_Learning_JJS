@@ -415,19 +415,63 @@ function initTheme() {
   }
   
   if(themeToggle) {
-    themeToggle.addEventListener('click', () => {
+    themeToggle.addEventListener('click', async (e) => {
       const isDark = html.classList.contains('dark');
-      if (isDark) {
-        html.classList.remove('dark');
-        html.classList.add('light');
-        localStorage.setItem('theme', 'light');
-        themeIcon.textContent = 'dark_mode';
-      } else {
-        html.classList.add('dark');
-        html.classList.remove('light');
-        localStorage.setItem('theme', 'dark');
-        themeIcon.textContent = 'light_mode';
+      const nextThemeDark = !isDark;
+      
+      const applyTheme = () => {
+        if (nextThemeDark) {
+          html.classList.add('dark');
+          html.classList.remove('light');
+          localStorage.setItem('theme', 'dark');
+          themeIcon.textContent = 'light_mode';
+        } else {
+          html.classList.remove('dark');
+          html.classList.add('light');
+          localStorage.setItem('theme', 'light');
+          themeIcon.textContent = 'dark_mode';
+        }
+      };
+
+      // 1. Safe Fallback
+      if (!document.startViewTransition) {
+        applyTheme();
+        return;
       }
+
+      // 2. Capture coordinates from the user's mouse click
+      const x = e.clientX;
+      const y = e.clientY;
+
+      // 3. Calculate max radius
+      const endRadius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      );
+
+      // 4. Start view transition
+      const transition = document.startViewTransition(() => {
+        applyTheme();
+      });
+
+      // 5. Wait for the new DOM layout
+      await transition.ready;
+
+      // 6. Native Web Animation for the circle clip-path
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`
+          ]
+        },
+        {
+          duration: 600,
+          easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+          pseudoElement: nextThemeDark ? '::view-transition-new(root)' : '::view-transition-old(root)',
+          direction: nextThemeDark ? 'normal' : 'reverse',
+        }
+      );
     });
   }
 }

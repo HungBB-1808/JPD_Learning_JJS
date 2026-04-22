@@ -389,3 +389,18 @@ body {
 .dark .modal-overlay .modal-backdrop {
   background: rgba(0, 0, 0, 0.70);
 }
+
+/* ============================================
+   View Transition Ripple Effect
+   ============================================ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
