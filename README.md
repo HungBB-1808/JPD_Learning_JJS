@@ -96,4 +96,4 @@ For GitHub Pages:
 
 ## Repository
 
-GitHub: [HungBB-1808/JPD_Learning_JJS](https://github.com/HungBB-1808/JPD_Learning_JJS)
+GitHub: [HungBB-1808/JPD_Learning_JJS](https://github.com/HungBB-1808/JPD_Learning_JJS).
