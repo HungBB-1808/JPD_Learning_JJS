@@ -1,99 +1,140 @@
-# JPD Learning JJS
+<p align="center">
+  <img src="https://img.shields.io/badge/Japanese-Vocabulary-6366f1?style=for-the-badge&logoColor=white" alt="JPD Learning" />
+</p>
 
-JPD Learning JJS is a lightweight browser app for learning Japanese vocabulary with Vietnamese meanings. It runs as a static website and stores vocabulary, learning progress, and recent activity in the browser with `localStorage`.
+<h1 align="center">🌊 Liquid Intelligence</h1>
+<h3 align="center">Japanese Vocabulary Learning App — Liquid Glass Edition</h3>
 
-## Features
+<p align="center">
+  <a href="https://hungbb-1808.github.io/JPD_Learning_JJS/">
+    <img src="https://img.shields.io/badge/🔗_Live_Demo-Visit_Site-6366f1?style=for-the-badge" alt="Live Demo" />
+  </a>
+</p>
 
-- Add Japanese vocabulary with Vietnamese translations.
-- Review saved words from a searchable vocabulary library.
-- Practice with animated flashcards and track mastery from 0 to 5.
-- Take multiple-choice quizzes with configurable question counts and timer settings.
-- Skip uncertain quiz questions with optional certainty scoring.
-- View dashboard stats, review progress, recent activity, and weekly activity bars.
-- Switch between light and dark themes with a smooth view-transition animation.
-- Responsive layout with desktop side navigation and mobile bottom navigation.
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/GitHub_Pages-222?style=flat-square&logo=github&logoColor=white" />
+</p>
 
-## Tech Stack
+---
 
-- HTML5
-- CSS3
-- JavaScript
-- Tailwind CSS CDN
-- Google Fonts and Material Symbols
-- Browser `localStorage`
+## ✨ Overview
 
-No build step or backend server is required.
+**Liquid Intelligence** is a premium, zero-dependency web application for learning Japanese vocabulary with Vietnamese meanings. Built with a **macOS 26-inspired "Liquid Glass"** aesthetic, the app features glassmorphism panels, fluid transitions, and an immersive study experience — all running entirely in the browser with no backend required.
 
-## Project Structure
+> 🌐 **Live:** [hungbb-1808.github.io/JPD_Learning_JJS](https://hungbb-1808.github.io/JPD_Learning_JJS/)
 
-```text
-.
-|-- index.html
-|-- README.md
-|-- css/
-|   `-- styles.css
-|-- js/
-|   |-- app.js
-|   |-- flashcards.js
-|   `-- quiz.js
-|-- add-dark-classes.js
-`-- add-dark-classes2.js
+---
+
+## 🎯 Features
+
+| Module | Description |
+|--------|-------------|
+| **📚 Dashboard** | Real-time stats (total words, mastered, due for review), weekly activity chart, and vocabulary bank overview |
+| **✏️ Input Modal** | Add Japanese words with Vietnamese meanings — modal stays open for continuous batch entry |
+| **🃏 Flashcards** | 3D flip animation with mastery tracking (0–5 scale), "I Know This" / "Need Practice" / "Skip" actions |
+| **📝 Quiz** | Configurable assessments with timer, randomized multiple-choice, Quick Pass (50% credit), and hint system |
+| **🌙 Dark Mode** | Smooth **ripple transition effect** using the native View Transitions API — expands from your click coordinates |
+| **🔍 Search** | Instantly filter your vocabulary library by Japanese or Vietnamese text |
+| **📱 Responsive** | Desktop sidebar + mobile bottom navigation for seamless use across all devices |
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Structure | HTML5 semantic elements |
+| Styling | Tailwind CSS (CDN) + custom glassmorphism CSS |
+| Logic | Vanilla JavaScript (ES6+) |
+| Data | Browser `localStorage` |
+| Fonts | [Manrope](https://fonts.google.com/specimen/Manrope) via Google Fonts |
+| Icons | [Material Symbols Outlined](https://fonts.google.com/icons) |
+| Transitions | View Transitions API + Web Animations API |
+| Hosting | GitHub Pages |
+
+**No build step, no npm, no backend — just open and go.**
+
+---
+
+## 📁 Project Structure
+
+```
+JPD_Learning_JJS/
+├── index.html          # Single Page Application shell (all views)
+├── css/
+│   └── styles.css      # Glassmorphism, animations, dark mode, View Transitions
+├── js/
+│   ├── app.js          # Core routing, localStorage store, dashboard, theme toggle
+│   ├── flashcards.js   # 3D flip cards, session tracking, mastery updates
+│   └── quiz.js         # Quiz engine, timer, scoring, Quick Pass logic
+└── README.md
 ```
 
-## Getting Started
+---
 
-Open `index.html` directly in a browser, or serve the folder with any static file server.
+## 🚀 Getting Started
 
-Example with Node.js:
+### Option 1 — Open directly
+Simply double-click `index.html` in your browser.
+
+### Option 2 — Local server
 
 ```bash
+# Python
+python -m http.server 3000
+
+# Node.js
 npx serve .
 ```
 
-Example with Python:
+Then visit **http://localhost:3000**
 
-```bash
-python -m http.server 8000
-```
+---
 
-Then open:
+## 📖 How to Use
 
-```text
-http://localhost:8000
-```
+1. **Add words** — Click the `+` button or "Input" nav to open the add modal. Enter a Japanese word and its Vietnamese meaning, then click "Save to Bank". The modal stays open so you can keep adding.
+2. **Study flashcards** — Navigate to "Practice". Cards show the Japanese word; tap to flip and reveal the meaning. Mark as "I Know This", "Need Practice", or "Skip".
+3. **Take a quiz** — Navigate to "Quiz". Choose your question count and time limit, then click "Begin Assessment". Answer multiple-choice questions or use Quick Pass to skip.
+4. **Track progress** — The Dashboard shows your total words, mastery percentage, weekly activity, and recent actions.
+5. **Toggle dark mode** — Click the 🌙/☀️ icon in the top nav. Watch the ripple transition expand from your click!
 
-## How To Use
+---
 
-1. Open the app in your browser.
-2. Click the add button or open the Input view.
-3. Enter a Japanese word and its Vietnamese meaning.
-4. Use Library to search and manage saved words.
-5. Use Practice to review flashcards and update mastery.
-6. Use Quiz to test vocabulary with timed multiple-choice questions.
+## 💾 Data Storage
 
-## Data Storage
+All data lives in `localStorage` under these keys:
 
-The app stores data only in the current browser through `localStorage`.
+| Key | Contents |
+|-----|----------|
+| `liquid_intelligence_vocab` | Array of vocabulary objects (word, meaning, mastery, timestamps) |
+| `liquid_intelligence_activity` | Recent activity log (last 50 actions) |
+| `theme` | User's theme preference (`light` or `dark`) |
 
-Main storage keys:
+> ⚠️ Clearing your browser's site data will erase all saved vocabulary and progress.
 
-- `liquid_intelligence_vocab`
-- `liquid_intelligence_activity`
-- `theme`
+---
 
-Clearing browser site data will remove saved vocabulary and progress.
+## 🌐 Deployment
 
-## Deployment
+This is a fully static app — deploy anywhere:
 
-Because this is a static app, it can be deployed on GitHub Pages, Netlify, Vercel, or any static hosting provider.
+- **GitHub Pages** — Push to GitHub → Settings → Pages → Deploy from `main` branch, root `/`
+- **Vercel / Netlify** — Connect the repo and deploy with zero configuration
+- **Any web server** — Just serve the files as-is
 
-For GitHub Pages:
+---
 
-1. Push the repository to GitHub.
-2. Open repository settings.
-3. Enable GitHub Pages from the `main` branch.
-4. Select the repository root as the publishing source.
+## 📄 License
 
-## Repository
+This project is for educational purposes.
 
-GitHub: [HungBB-1808/JPD_Learning_JJS](https://github.com/HungBB-1808/JPD_Learning_JJS)
+---
+
+<p align="center">
+  Built with 💜 by <a href="https://github.com/HungBB-1808">HungBB-1808</a>
+</p>
